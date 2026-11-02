@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مقاله | لیان</title>
+    <meta name="description" content="مجله لیان؛ روایت معماری و طراحی زیورآلات تهران.">
+
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .article-page {
+            max-width: 1150px;
+            margin: 65px auto;
+            padding: 0 25px;
+            font-family: "Vazirmatn", sans-serif;
+            color: #26354A;
+        }
+
+        .article-cover {
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+            padding: 65px 75px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #26354A;
+            border: 1px solid #B89A62;
+            color: #F5EFE3;
+        }
+
+        .article-cover::before,
+        .article-cover::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(184,154,98,.35);
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        .article-cover::before {
+            width: 270px;
+            height: 270px;
+            left: -90px;
+            top: -90px;
+        }
+
+        .article-cover::after {
+            width: 180px;
+            height: 180px;
+            right: -70px;
+            bottom: -70px;
+        }
+
+        .cover-decoration {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            left: 17%;
+            bottom: 12%;
+            border: 1px solid rgba(184,154,98,.55);
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        .article-cover .eyebrow {
+            position: relative;
+            z-index: 1;
+            color: #B89A62;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .article-cover h1 {
+            position: relative;
+            z-index: 1;
+            max-width: 750px;
+            color: #F5EFE3;
+            font-size: clamp(27px, 4vw, 43px);
+            line-height: 1.9;
+            font-weight: 700;
+            margin: 0 0 18px;
+        }
+
+        .article-cover > p {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+            color: #D8D0C1;
+            font-size: 15px;
+            line-height: 2.3;
+            margin: 0;
+        }
+
+        .article-body {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 55px 45px;
+            background: #FFFEFB;
+            box-shadow: 0 15px 45px rgba(23,38,56,.045);
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 25px;
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #E9DFCE;
+            color: #77736C;
+            font-size: 13px;
+        }
+
+        .article-intro {
+            color: #35465A;
+            font-size: 17px;
+            line-height: 2.5;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .design-section {
+            margin: 45px 0;
+        }
+
+        .section-number {
+            display: inline-block;
+            color: #B89A62;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .design-section h2 {
+            position: relative;
+            color: #26354A;
+            font-size: 22px;
+            line-height: 1.9;
+            margin: 0 0 22px;
+            padding-bottom: 14px;
+        }
+
+        .design-section h2::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 55px;
+            height: 2px;
+            background: #B89A62;
+        }
+
+        .design-section p {
+            color: #555D65;
+            font-size: 15px;
+            line-height: 2.6;
+            margin: 0 0 18px;
+            text-align: justify;
+        }
+
+        .article-quote {
+            margin: 40px 0;
+            padding: 30px 35px;
+            background: #F5EFE3;
+            border-right: 3px solid #B89A62;
+            color: #26354A;
+            font-size: 17px;
+            line-height: 2.4;
+        }
+
+        .article-quote p {
+            margin: 0;
+        }
+
+        .lian-perspective {
+            position: relative;
+            overflow: hidden;
+            margin: 50px 0;
+            padding: 35px;
+            background: #26354A;
+            color: #F5EFE3;
+        }
+
+        .lian-perspective::after {
+            content: "LIAN";
+            position: absolute;
+            left: 15px;
+            bottom: -35px;
+            color: rgba(255,255,255,.035);
+            font-size: 100px;
+            font-weight: 800;
+            pointer-events: none;
+        }
+
+        .lian-perspective h2 {
+            position: relative;
+            z-index: 1;
+            color: #B89A62;
+            font-size: 20px;
+            margin: 0 0 15px;
+        }
+
+        .lian-perspective p {
+            position: relative;
+            z-index: 1;
+            color: #E6DFD2;
+            line-height: 2.5;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .article-loading,
+        .article-error {
+            text-align: center;
+            padding: 80px 20px;
+            color: #77736C;
+            line-height: 2.5;
+        }
+
+        .article-error a,
+        .back-link {
+            color: #B89A62;
+            text-decoration: none;
+        }
+
+        .qa-section {
+            margin-top: 65px;
+            padding-top: 40px;
+            border-top: 1px solid #E9DFCE;
+        }
+
+        .qa-heading h2 {
+            color: #26354A;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .qa-heading p {
+            color: #77736C;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .qa-question-form {
+            display: grid;
+            gap: 13px;
+            margin: 25px 0 35px;
+        }
+
+        .qa-question-form input,
+        .qa-question-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 15px;
+            border: 1px solid #E2D8C7;
+            background: #FFFEFB;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .qa-question-form button,
+        .qa-reply-form button {
+            justify-self: start;
+            padding: 11px 25px;
+            border: none;
+            background: #26354A;
+            color: #F5EFE3;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .qa-card {
+            padding: 22px;
+            margin-bottom: 18px;
+            background: #F8F4EC;
+            border-right: 2px solid #B89A62;
+        }
+
+        .qa-name,
+        .qa-answer-name {
+            display: block;
+            color: #26354A;
+            margin-bottom: 10px;
+        }
+
+        .qa-question,
+        .qa-answer-text {
+            color: #555D65;
+            line-height: 2.2;
+            margin: 0;
+        }
+
+        .qa-answers {
+            margin-top: 18px;
+        }
+
+        .qa-answer {
+            padding: 15px;
+            margin-top: 12px;
+            background: #FFFEFB;
+        }
+
+        .qa-reply-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .qa-reply-form input {
+            flex: 1 1 180px;
+            min-width: 0;
+            padding: 10px;
+            border: 1px solid #E2D8C7;
+            font-family: inherit;
+        }
+
+        .qa-empty {
+            color: #77736C;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 35px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 650px) {
+            .article-page {
+                margin: 30px auto;
+                padding: 0 14px;
+            }
+
+            .article-cover {
+                min-height: 330px;
+                padding: 40px 25px;
+            }
+
+            .article-body {
+                padding: 35px 20px;
+            }
+
+            .article-intro {
+                font-size: 15px;
+            }
+
+            .design-section h2 {
+                font-size: 19px;
+            }
+
+            .design-section p {
+                font-size: 14px;
+                text-align: right;
+            }
+
+            .lian-perspective {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-line">
+        LIAN JOURNAL — STORIES BEHIND EVERY DETAIL
+    </div>
+
+    <header class="header">
+        <a href="../index.html" class="logo">
+            <span class="logo-name">لیان</span>
+            <span class="logo-caption">روایتی از تهران در زیورآلات</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="../index.html">صفحه اصلی</a>
+            <a href="../index.html#articles">مقالات</a>
+            <a href="../index.html#about">درباره لیان</a>
+            <a href="../index.html#contact">ارتباط با ما</a>
+        </nav>
+    </header>
+
+
+    <main class="article-page">
+
+        <div id="articleLoading" class="article-loading">
+            در حال آماده‌سازی مقاله...
+        </div>
+
+        <div id="articleError" class="article-error" hidden>
+            <h2>مقاله موردنظر پیدا نشد.</h2>
+            <p>ممکن است مقاله حذف شده یا هنوز منتشر نشده باشد.</p>
+            <a href="../index.html#articles">بازگشت به مقالات</a>
+        </div>
+
+        <div id="articleContainer" hidden>
+
+            <section class="article-cover">
+                <span class="eyebrow" id="articleCategory">مجله لیان</span>
+                <h1 id="articleTitle"></h1>
+                <p id="articleExcerpt"></p>
+                <div class="cover-decoration"></div>
+            </section>
+
+            <article class="article-body">
+
+                <div class="article-meta">
+                    <span id="articleMetaCategory"></span>
+                    <span id="articleDate"></span>
+                    <span id="articleReadingTime"></span>
+                </div>
+
+                <div id="articleContent"></div>
+
+                <section class="lian-perspective">
+                    <h2>از نگاه لیان</h2>
+                    <p>
+                        در لیان، هر اثر فرصتی برای روایت یک داستان است؛
+                        داستانی که از جزئیات، فرهنگ و نگاه متفاوت به طراحی شکل می‌گیرد.
+                    </p>
+                </section>
+
+
+                <!-- پرسش و پاسخ مستقل از دیدگاه‌ها -->
+                <section class="qa-section">
+
+                    <div class="qa-heading">
+                        <h2>گفت‌وگو درباره این مقاله</h2>
+                        <p>
+                            پرسش یا دیدگاه خود را درباره این مقاله با ما به اشتراک بگذارید.
+                        </p>
+                    </div>
+
+                    <form id="qa-question-form" class="qa-question-form">
+                        <input
+                            type="text"
+                            id="qa-name"
+                            placeholder="نام شما"
+                            maxlength="30"
+                            required
+                        >
+
+                        <textarea
+                            id="qa-question"
+                            placeholder="پرسش یا دیدگاه شما..."
+                            maxlength="1000"
+                            rows="4"
+                            required
+                        ></textarea>
+
+                        <button type="submit">ثبت پرسش</button>
+                    </form>
+
+                    <div id="qa-list"></div>
+                </section>
+
+
+                <!-- سیستم عمومی دیدگاه‌ها -->
+                <section class="comments-section" id="comments">
+
+                    <div class="section-heading">
+                        <span class="eyebrow">LET'S TALK</span>
+                        <h2>دیدگاه شما درباره این مقاله</h2>
+                        <p>
+                            نظر، پرسش یا پیشنهاد خود را با ما به اشتراک بگذارید.
+                        </p>
+                    </div>
+
+                    <div class="comment-notice">
+                        پیام‌های شما پس از بررسی و تأیید مدیریت منتشر می‌شوند.
+                    </div>
+
+                    <form id="commentForm" class="comment-form">
+
+                        <label for="commentAuthor">نام شما</label>
+                        <input
+                            type="text"
+                            id="commentAuthor"
+                            name="author"
+                            maxlength="80"
+                            placeholder="نام خود را وارد کنید"
+                            required
+                        >
+
+                        <label for="commentType">نوع پیام</label>
+                        <select id="commentType" name="type" required>
+                            <option value="comment">نظر</option>
+                            <option value="question">سؤال</option>
+                            <option value="suggestion">پیشنهاد</option>
+                        </select>
+
+                        <label for="commentBody">متن پیام</label>
+                        <textarea
+                            id="commentBody"
+                            name="body"
+                            rows="5"
+                            maxlength="2000"
+                            placeholder="دیدگاه خود را بنویسید..."
+                            required
+                        ></textarea>
+
+                        <button type="submit" class="main-button">
+                            ارسال پیام
+                        </button>
+
+                        <p
+                            id="formMessage"
+                            class="form-message"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+
+                    </form>
+
+                    <div class="approved-comments" id="approvedComments">
+                        <h3>دیدگاه‌های منتشرشده</h3>
+                    </div>
+
+                </section>
+
+
+                <a class="back-link" href="../index.html#articles">
+                    ← بازگشت به فهرست مقالات
+                </a>
+
+            </article>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <p>LIAN — روایت زیورآلات تهران</p>
+    </footer>
+
+
+    <!-- شناسه مقاله برای سیستم پرسش و پاسخ -->
+    <script>
+        const currentSlug = new URLSearchParams(
+            window.location.search
+        ).get("slug");
+
+        const qaSection = document.querySelector(".qa-section");
+
+        if (qaSection) {
+            qaSection.dataset.article = currentSlug || "unknown";
+        }
+    </script>
+
+    <!-- ترتیب بارگذاری اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../assets/supabase.js"></script>
+    <script src="../assets/article-page.js"></script>
+    <script src="../assets/app.js"></script>
+    <script src="../assets/qa.js"></script>
+    <script src="../assets/navigation.js"></script>
+
+</body>
+</html>

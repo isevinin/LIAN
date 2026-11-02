@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>از یک ایده تا خلق یک اثر | لیان</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#172638;--cream:#F5EFE3;--gold:#B89A64;--paper:#FFFEFB;--muted:#77736D;--line:#E5DDCF}
+*{box-sizing:border-box}
+body{margin:0;background:#faf8f3;color:var(--navy);font-family:'Vazirmatn',Tahoma,sans-serif}
+a{color:inherit}
+.top-line{padding:10px 20px;text-align:center;background:var(--navy);color:#e9dcc3;font-size:10px;letter-spacing:3px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:22px max(5%,calc((100% - 1150px)/2));background:var(--paper);border-bottom:1px solid var(--line)}
+.logo{text-decoration:none;display:flex;flex-direction:column;gap:3px}
+.logo-name{font-size:29px;font-weight:800;color:var(--navy)}
+.logo-caption{font-size:10px;color:#99845f}
+.navigation{display:flex;gap:24px;flex-wrap:wrap}
+.navigation a,.header-button{text-decoration:none;font-size:12px;color:var(--navy)}
+.header-button{padding:11px 17px;border:1px solid var(--gold)}
+.article-page{max-width:1150px;margin:60px auto;padding:0 24px}
+.article-cover{position:relative;min-height:420px;padding:65px 75px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:var(--navy);border:1px solid var(--gold)}
+.article-cover:before{content:"";position:absolute;width:330px;height:330px;border:1px solid #b89a6455;border-radius:50%;left:-70px;top:-100px}
+.article-cover:after{content:"";position:absolute;width:220px;height:220px;border:1px solid #b89a643d;transform:rotate(45deg);left:-15px;top:-45px}
+.eyebrow{position:relative;z-index:1;color:#c7ab78;font-size:11px;letter-spacing:3px;font-weight:700;margin-bottom:24px}
+.article-cover h1{position:relative;z-index:1;max-width:780px;margin:0;color:#f5eddf;font-size:clamp(30px,5vw,52px);line-height:1.9;font-weight:800}
+.article-cover p{position:relative;z-index:1;color:#d4c7b1;font-size:15px;line-height:2.4;margin:15px 0 0}
+.cover-decoration{position:absolute;bottom:35px;left:45px;color:#d4c7b177;font-size:10px;letter-spacing:3px;direction:ltr}
+.article-body{max-width:850px;margin:auto;padding:55px 40px;background:var(--paper)}
+.article-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid var(--line);font-size:12px;color:#a18758}
+.article-intro{margin:40px 0 60px;padding:25px 30px;background:#f3eee4;border-right:3px solid var(--gold);font-size:16px;line-height:2.9;color:#344258;text-align:justify}
+.article-section{margin:60px 0}
+.section-number{font-size:56px;font-weight:800;color:#e9e2d5;line-height:1;direction:ltr;text-align:right}
+.article-section h2{font-size:21px;color:var(--navy);margin:5px 0 18px}
+.article-section h2:after{content:"";display:block;width:45px;height:2px;background:var(--gold);margin-top:13px}
+.article-section p,.article-section li{font-size:14px;line-height:2.9;color:var(--muted);text-align:justify}
+.geometric-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:45px 0}
+.geometric-divider span{width:50px;height:1px;background:#d9c9a9}
+.geometric-divider i{width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:30px 0}
+.feature-card{padding:23px;background:#f5f0e6;border:1px solid #e5dac6}
+.feature-card b{display:block;color:var(--gold);font-size:25px}
+.feature-card h3{font-size:15px;margin:10px 0;color:var(--navy)}
+.feature-card p{font-size:13px;line-height:2.5;color:var(--muted);margin:0}
+.dark-note{padding:32px;background:var(--navy);color:#f5eddf;margin:55px 0;position:relative}
+.dark-note h2{font-size:20px;color:#d4b77e;margin:0 0 15px}
+.dark-note p{font-size:14px;line-height:2.8;color:#e4ddcf;margin:0;text-align:justify}
+.article-quote{padding:40px 25px;text-align:center;margin:45px 0;border-top:1px solid #d8c9ab;border-bottom:1px solid #d8c9ab;color:#9b7942;font-size:20px;line-height:2.5;font-weight:600}
+.quote-mark{display:block;font-size:48px;color:#b89a62;line-height:1}
+.comparison-wrapper{overflow-x:auto;margin:30px 0;border:1px solid #e2d7c5}
+.comparison-table{width:100%;min-width:620px;border-collapse:collapse;text-align:center;font-size:12px}
+.comparison-table th{background:var(--navy);color:#f5eddf;padding:15px 10px}
+.comparison-table td{padding:14px 10px;border-bottom:1px solid #e9e1d4;color:#69645d;line-height:2}
+.comparison-table tr:nth-child(even){background:#f6f1e8}
+.comparison-table .lian-column{background:#eee5d4;color:var(--navy);font-weight:700}
+.qa-section,.article-comments{margin:65px 0 25px;padding:32px;background:#f7f2e9;border:1px solid #e5dac6}
+.qa-heading,.comments-heading h2{font-size:22px;color:var(--navy);margin:0 0 12px}
+.qa-description,.comments-heading p{font-size:13px;line-height:2.3;color:#77736d}
+.qa-question-form,.comment-form{display:flex;flex-direction:column;gap:10px}
+.qa-question-form label,.comment-form label{font-size:12px;font-weight:600;color:var(--navy);margin-top:8px}
+.qa-question-form input,.qa-question-form textarea,.comment-form input,.comment-form textarea,.comment-form select{width:100%;padding:13px;border:1px solid #ded2be;background:var(--paper);font:13px 'Vazirmatn',Tahoma,sans-serif;color:var(--navy);outline:none}
+.qa-question-form input:focus,.qa-question-form textarea:focus,.comment-form input:focus,.comment-form textarea:focus,.comment-form select:focus{border-color:var(--gold)}
+.qa-question-form textarea,.comment-form textarea{min-height:110px;resize:vertical}
+.qa-question-form button,.comment-form button{align-self:flex-start;margin-top:12px;padding:12px 25px;border:0;background:var(--navy);color:var(--cream);font:13px 'Vazirmatn',Tahoma,sans-serif;cursor:pointer}
+.qa-question-form button:hover,.comment-form button:hover{background:var(--gold);color:var(--navy)}
+.comment-notice{padding:13px 16px;margin:20px 0;background:#fffdf8;border-right:3px solid var(--gold);font-size:12px;line-height:2;color:#5c5a54}
+.form-message{font-size:12px;line-height:2;color:#77736c}
+.approved-comments{margin-top:30px;padding-top:22px;border-top:1px solid #d8c9b1}
+.approved-comments h3{font-size:16px;color:var(--navy)}
+.back-link{display:inline-block;margin-top:30px;color:#9b7942;text-decoration:none;font-size:13px;font-weight:600}
+.footer{padding:40px 20px;text-align:center;background:var(--navy);color:#e7ddcb}
+.footer-logo{font-size:28px;font-weight:800}
+.footer p{font-size:13px;color:#d4c7b1}
+.footer span{font-size:10px;letter-spacing:2px;color:#b9aa90}
+@media(max-width:700px){.header{align-items:flex-start;flex-direction:column;padding:18px 20px}.navigation{gap:14px}.article-page{margin:30px auto;padding:0 14px}.article-cover{min-height:340px;padding:40px 25px}.article-cover h1{font-size:29px}.cover-decoration{left:15px;font-size:8px}.article-body{padding:32px 16px}.article-intro{font-size:14px;padding:20px;margin:30px 0 45px}.article-section{margin:45px 0}.article-section p{font-size:13px}.feature-grid{grid-template-columns:1fr}.dark-note{padding:24px}.article-quote{font-size:17px}.qa-section,.article-comments{padding:22px 16px}}
+</style>
+</head>
+<body>
+<div class="top-line">LIAN JOURNAL — STORIES BEHIND EVERY DETAIL</div>
+<header class="header">
+  <a href="../index.html" class="logo"><span class="logo-name">لیان</span><span class="logo-caption">روایتی از تهران در زیورآلات</span></a>
+  <nav class="navigation">
+    <a href="../index.html">صفحه اصلی</a><a href="../index.html#about">درباره لیان</a><a href="../index.html#articles">مقالات</a><a href="../index.html#contact">ارتباط با ما</a>
+  </nav>
+  <a href="../index.html#comments" class="header-button">گفت‌وگو با ما</a>
+</header>
+<main class="article-page">
+  <div class="article-cover">
+    <span class="eyebrow">BEHIND THE SCENES / 03</span>
+    <h1>از یک ایده تا خلق یک اثر</h1>
+    <p>سفر یک الهام معماری تا تبدیل شدن به زیورآلات.</p>
+    <div class="cover-decoration">ARCHITECTURE × ART × JEWELRY</div>
+  </div>
+  <article class="article-body">
+    <div class="article-meta"><span>✦ پشت صحنه لیان</span><span>زمان مطالعه: 3 دقیقه</span></div>
+    
+<p class="article-intro">هر محصول می‌تواند داستانی برای گفتن داشته باشد. در لیان، این داستان معمولاً از یک تصویر، یک نقش قدیمی یا یک جزئیات معماری آغاز می‌شود.</p>
+<h2 class="article-section">مسیر شکل‌گیری یک اثر</h2>
+<section class="article-section"><div class="section-number">01</div><h2>جست‌وجوی الهام</h2><p>ابتدا عناصر معماری تهران بررسی می‌شوند. درها، پنجره‌ها، نقوش هندسی و تزئینات قدیمی می‌توانند نقطه شروع یک ایده باشند.</p></section>
+<section class="article-section"><div class="section-number">02</div><h2>طراحی اولیه</h2><p>پس از انتخاب طرح الهام‌بخش، فرم‌ها و خطوط مهم آن مشخص می‌شوند. سپس چند ایده اولیه برای تبدیل آن به یک زیورآلات قابل استفاده طراحی می‌شود.</p></section>
+<section class="article-section"><div class="section-number">03</div><h2>انتخاب متریال</h2><p>انتخاب متریال نقش مهمی در ظاهر و کیفیت محصول دارد. رنگ، بافت، وزن و هماهنگی مواد با طرح نهایی در این مرحله مورد توجه قرار می‌گیرند.</p></section>
+<section class="article-section"><div class="section-number">04</div><h2>ساخت و بررسی نهایی</h2><p>پس از نهایی شدن طرح، محصول ساخته و جزئیات آن بررسی می‌شود تا نتیجه نهایی با ایده اولیه هماهنگی داشته باشد.</p></section>
+<section class="dark-note"><h2>نگاهی به مسیر لیان</h2><p>برای لیان، هر زیورآلات فرصتی است تا بخشی از خاطره و زیبایی معماری تهران به شکلی تازه در زندگی روزمره حضور پیدا کند.</p></section>
+<div class="article-quote"><span class="quote-mark">“</span>هر اثر زیبا، از یک نگاه متفاوت آغاز می‌شود.</div>
+
+    <a href="../index.html#articles" class="back-link">← بازگشت به مجله لیان</a>
+    
+<section class="qa-section" data-article="process">
+  <h2 class="qa-heading">گفت‌وگو با لیان</h2>
+  <p class="qa-description">سؤال یا دیدگاه خود را درباره‌ی این مقاله با ما به اشتراک بگذارید. همچنین می‌توانید پرسش‌های دیگران را بخوانید.</p>
+  <form id="qa-question-form" class="qa-question-form">
+    <label for="qa-name">نام شما</label>
+    <input type="text" id="qa-name" maxlength="30" placeholder="نام خود را وارد کنید" required>
+    <label for="qa-question">سؤال یا دیدگاه شما</label>
+    <textarea id="qa-question" maxlength="500" placeholder="اینجا بنویسید..." required></textarea>
+    <button type="submit">ثبت پرسش</button>
+  </form>
+  <div id="qa-list"></div>
+</section>
+    
+<section class="article-comments" id="comments">
+  <div class="comments-heading">
+    <span class="eyebrow">SHARE YOUR THOUGHTS</span>
+    <h2>دیدگاه شما درباره این مقاله</h2>
+    <p>برداشت‌ها، پیشنهادها و سؤال‌های خود را با ما به اشتراک بگذارید.</p>
+  </div>
+  <div class="comment-notice">دیدگاه شما پس از بررسی و تأیید مدیر وب‌سایت در بخش نظرات نمایش داده خواهد شد.</div>
+  <form class="comment-form" id="commentForm">
+    <label for="commentAuthor">نام شما</label>
+    <input type="text" id="commentAuthor" name="author" maxlength="60" placeholder="نام خود را وارد کنید" required>
+    <label for="commentType">نوع پیام</label>
+    <select id="commentType" name="type" required>
+      <option value="comment">دیدگاه</option>
+      <option value="question">سؤال</option>
+      <option value="suggestion">پیشنهاد</option>
+    </select>
+    <label for="commentBody">متن پیام</label>
+    <textarea id="commentBody" name="body" maxlength="1500" placeholder="متن پیام خود را بنویسید..." required></textarea>
+    <button type="submit">ارسال برای بررسی</button>
+    <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+  </form>
+  <div class="approved-comments" id="approvedComments">
+    <h3>دیدگاه‌های منتشرشده</h3>
+    <p>دیدگاه‌های تأییدشده در این قسمت نمایش داده می‌شوند.</p>
+  </div>
+</section>
+  </article>
+</main>
+<footer class="footer"><div class="footer-logo">لیان</div><p>زیبایی معماری تهران، در قالب زیورآلات</p><span>© 2026 LIAN — ALL RIGHTS RESERVED</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/supabase.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/qa.js"></script>
+<script src="../assets/navigation.js"></script>
+</body>
+</html>

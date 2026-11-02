@@ -1,0 +1,826 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مدیریت لیان | پنل مدیریت</title>
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #F5EFE3;
+            color: #26354A;
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        button, input, textarea, select {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .admin-topline {
+            padding: 12px 20px;
+            text-align: center;
+            background: #172638;
+            color: #B89A64;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .admin-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 7%;
+            background: #FFFEFB;
+            border-bottom: 1px solid #E9DFCE;
+        }
+
+        .admin-logo {
+            color: #172638;
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .admin-header span {
+            color: #77736C;
+            font-size: 13px;
+        }
+
+        .admin-container {
+            width: min(1100px, 92%);
+            margin: 45px auto;
+        }
+
+        .admin-heading {
+            margin-bottom: 30px;
+        }
+
+        .admin-heading h1 {
+            margin: 0 0 10px;
+            color: #172638;
+            font-size: 27px;
+        }
+
+        .admin-heading p {
+            margin: 0;
+            color: #77736C;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .login-card {
+            width: min(440px, 100%);
+            margin: 75px auto;
+            padding: 40px;
+            background: #FFFEFB;
+            border: 1px solid #E9DFCE;
+            box-shadow: 0 15px 40px rgba(23,38,56,.06);
+        }
+
+        .login-decoration {
+            width: 45px;
+            height: 45px;
+            margin: 0 auto 22px;
+            border: 1px solid #B89A64;
+            transform: rotate(45deg);
+        }
+
+        .login-card h1 {
+            margin: 0 0 10px;
+            text-align: center;
+            color: #172638;
+            font-size: 24px;
+        }
+
+        .login-card > p {
+            margin: 0 0 30px;
+            text-align: center;
+            color: #77736C;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .admin-field {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 20px;
+        }
+
+        .admin-field label {
+            color: #26354A;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .admin-field input,
+        .admin-field textarea,
+        .admin-field select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #E2D8C7;
+            border-radius: 3px;
+            background: #FFFEFB;
+            color: #26354A;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .admin-field textarea {
+            min-height: 180px;
+            resize: vertical;
+            line-height: 2.2;
+        }
+
+        .admin-field input:focus,
+        .admin-field textarea:focus,
+        .admin-field select:focus {
+            border-color: #B89A64;
+        }
+
+        .admin-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 43px;
+            padding: 10px 22px;
+            border: 1px solid #172638;
+            border-radius: 3px;
+            background: #172638;
+            color: #F5EFE3;
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        .admin-button:hover {
+            background: #B89A64;
+            border-color: #B89A64;
+            color: #172638;
+        }
+
+        .admin-button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .admin-button.secondary {
+            background: transparent;
+            color: #172638;
+        }
+
+        .admin-button.danger {
+            background: #8B3D3D;
+            border-color: #8B3D3D;
+            color: white;
+        }
+
+        .admin-button.small {
+            min-height: 34px;
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .message {
+            margin-top: 17px;
+            padding: 12px;
+            border-radius: 3px;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .message:empty {
+            display: none;
+        }
+
+        .message.success {
+            background: #E6F1E8;
+            color: #28613B;
+        }
+
+        .message.error {
+            background: #F8E7E4;
+            color: #963C35;
+        }
+
+        #dashboardSection {
+            display: none;
+        }
+
+        .dashboard-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .dashboard-top h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .dashboard-top p {
+            margin: 8px 0 0;
+            color: #77736C;
+            font-size: 13px;
+        }
+
+        .dashboard-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #DCCFB9;
+        }
+
+        .tab-button {
+            padding: 12px 22px;
+            border: 1px solid #DCCFB9;
+            background: #FFFEFB;
+            color: #26354A;
+            font-size: 13px;
+        }
+
+        .tab-button.active {
+            background: #172638;
+            color: #F5EFE3;
+            border-color: #172638;
+        }
+
+        .admin-panel {
+            padding: 30px;
+            margin-bottom: 30px;
+            background: #FFFEFB;
+            border: 1px solid #E9DFCE;
+            box-shadow: 0 10px 30px rgba(23,38,56,.035);
+        }
+
+        .panel-heading {
+            margin-bottom: 25px;
+            padding-bottom: 17px;
+            border-bottom: 1px solid #E9DFCE;
+        }
+
+        .panel-heading h2 {
+            margin: 0 0 8px;
+            color: #172638;
+            font-size: 20px;
+        }
+
+        .panel-heading p {
+            margin: 0;
+            color: #77736C;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-hint {
+            color: #8A8173;
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        .form-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .article-writing-guide {
+            margin: 15px 0 25px;
+            padding: 18px;
+            background: #F5EFE3;
+            border-right: 3px solid #B89A64;
+        }
+
+        .article-writing-guide h3 {
+            margin: 0 0 10px;
+            color: #172638;
+            font-size: 14px;
+        }
+
+        .article-writing-guide p {
+            margin: 0;
+            color: #77736C;
+            font-size: 12px;
+            line-height: 2.3;
+        }
+
+        .article-writing-guide code {
+            color: #8B6D39;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            min-width: 650px;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .admin-table th {
+            padding: 15px 12px;
+            background: #172638;
+            color: #F5EFE3;
+            text-align: right;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .admin-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #E9DFCE;
+            color: #555D65;
+            line-height: 2;
+        }
+
+        .admin-table tr:hover td {
+            background: #FAF7F0;
+        }
+
+        .admin-table td button {
+            margin: 3px;
+        }
+
+        .admin-footer {
+            padding: 25px;
+            margin-top: 60px;
+            text-align: center;
+            background: #172638;
+            color: #D8D0C1;
+            font-size: 12px;
+        }
+
+        .empty-table {
+            text-align: center;
+            color: #77736C;
+            padding: 25px !important;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 650px) {
+            .admin-header {
+                padding: 18px 5%;
+            }
+
+            .admin-container {
+                width: 94%;
+                margin: 30px auto;
+            }
+
+            .login-card {
+                padding: 28px 22px;
+                margin: 45px auto;
+            }
+
+            .admin-panel {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            .dashboard-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .dashboard-top .admin-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-topline">
+        LIAN — ADMINISTRATION PANEL
+    </div>
+
+    <header class="admin-header">
+        <div class="admin-logo">LIAN</div>
+        <span>پنل مدیریت فروشگاه و مجله لیان</span>
+    </header>
+
+
+    <main class="admin-container">
+
+        <!-- LOGIN -->
+        <section id="loginSection">
+
+            <div class="login-card">
+
+                <div class="login-decoration"></div>
+
+                <h1>خوش آمدید</h1>
+
+                <p>
+                    برای ورود به پنل مدیریت لیان،
+                    اطلاعات حساب کاربری خود را وارد کنید.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="admin-field">
+                        <label for="email">ایمیل مدیر</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="password">رمز عبور</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="رمز عبور خود را وارد کنید"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="admin-button"
+                        id="loginButton"
+                        style="width:100%;"
+                    >
+                        ورود به پنل مدیریت
+                    </button>
+
+                    <div
+                        id="loginMessage"
+                        class="message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+                <button
+                    type="button"
+                    id="forgotPasswordButton"
+                    class="admin-button secondary"
+                    style="width:100%; margin-top:12px;"
+                >
+                    فراموشی رمز عبور
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboardSection" hidden>
+
+            <div class="dashboard-top">
+                <div>
+                    <h1>داشبورد مدیریت</h1>
+                    <p>به فضای مدیریت محتوای لیان خوش آمدید.</p>
+                </div>
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="admin-button danger"
+                >
+                    خروج از حساب
+                </button>
+            </div>
+
+
+            <!-- TABS -->
+            <nav class="dashboard-tabs">
+
+                <button
+                    type="button"
+                    class="tab-button active"
+                    data-tab="articlesPanel"
+                >
+                    مدیریت مقالات
+                </button>
+
+                <button
+                    type="button"
+                    class="tab-button"
+                    data-tab="commentsPanel"
+                >
+                    مدیریت دیدگاه‌ها
+                </button>
+
+            </nav>
+
+
+            <!-- ARTICLES PANEL -->
+            <section id="articlesPanel" class="admin-panel">
+
+                <div class="panel-heading">
+                    <h2 id="articleFormTitle">افزودن مقاله جدید</h2>
+                    <p>
+                        مقاله خود را بنویسید و پس از تکمیل،
+                        آن را در مجله لیان منتشر کنید.
+                    </p>
+                </div>
+
+
+                <div class="article-writing-guide">
+                    <h3>راهنمای نوشتن متن مقاله</h3>
+                    <p>
+                        برای ایجاد تیترهای بخش‌ها از دو علامت
+                        <code>##</code>
+                        در ابتدای خط استفاده کنید.
+                    </p>
+                    <p>
+                        مثال:
+                        <code>## الهام از معماری ایرانی</code>
+                    </p>
+                    <p>
+                        برای ایجاد نقل‌قول از علامت
+                        <code>&gt;</code>
+                        در ابتدای خط استفاده کنید.
+                    </p>
+                </div>
+
+
+                <form id="articleForm">
+
+                    <div class="form-grid">
+
+                        <div class="admin-field full-width">
+                            <label for="articleTitle">عنوان مقاله</label>
+                            <input
+                                type="text"
+                                id="articleTitle"
+                                name="title"
+                                placeholder="عنوان مقاله را وارد کنید"
+                                maxlength="200"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="admin-field">
+                            <label for="articleSlug">نشانی مقاله (Slug)</label>
+                            <input
+                                type="text"
+                                id="articleSlug"
+                                name="slug"
+                                placeholder="iranian-architecture"
+                                dir="ltr"
+                                required
+                            >
+                            <span class="form-hint">
+                                فقط حروف انگلیسی، عدد و خط تیره.
+                            </span>
+                        </div>
+
+
+                        <div class="admin-field">
+                            <label for="articleCategory">دسته‌بندی مقاله</label>
+                            <input
+                                type="text"
+                                id="articleCategory"
+                                name="category"
+                                placeholder="مثلاً دنیای طراحی"
+                            >
+                        </div>
+
+
+                        <div class="admin-field full-width">
+                            <label for="articleExcerpt">خلاصه مقاله</label>
+                            <textarea
+                                id="articleExcerpt"
+                                name="excerpt"
+                                rows="3"
+                                maxlength="500"
+                                placeholder="یک معرفی کوتاه برای کارت مقاله بنویسید..."
+                            ></textarea>
+                            <span class="form-hint">
+                                این متن در کارت مقاله صفحه اصلی نمایش داده می‌شود.
+                            </span>
+                        </div>
+
+
+                        <div class="admin-field full-width">
+                            <label for="articleContent">متن کامل مقاله</label>
+                            <textarea
+                                id="articleContent"
+                                name="content"
+                                rows="16"
+                                placeholder="مقدمه مقاله را بنویسید...
+
+## عنوان بخش اول
+
+متن بخش اول...
+
+## عنوان بخش دوم
+
+متن بخش دوم..."
+                                required
+                            ></textarea>
+                            <span class="form-hint">
+                                از ## برای تیتر و از &gt; برای نقل‌قول استفاده کنید.
+                            </span>
+                        </div>
+
+
+                        <div class="admin-field full-width">
+                            <label for="articleImage">آدرس تصویر (اختیاری)</label>
+                            <input
+                                type="text"
+                                id="articleImage"
+                                name="cover_image"
+                                placeholder="آدرس تصویر را وارد کنید"
+                                dir="ltr"
+                            >
+                            <span class="form-hint">
+                                در صورت خالی بودن، قالب تصویری تزئینی نمایش داده می‌شود.
+                            </span>
+                        </div>
+
+
+                        <div class="admin-field full-width">
+                            <label for="articleStatus">وضعیت مقاله</label>
+                            <select id="articleStatus" name="status" required>
+                                <option value="draft">پیش‌نویس</option>
+                                <option value="published">انتشار مقاله</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="admin-button">
+                            ذخیره مقاله
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelEdit"
+                            class="admin-button secondary"
+                            style="display:none;"
+                        >
+                            لغو ویرایش
+                        </button>
+                    </div>
+
+                    <div
+                        id="articleMessage"
+                        class="message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+
+                <hr style="border:0; border-top:1px solid #E9DFCE; margin:40px 0;">
+
+
+                <div class="panel-heading">
+                    <h2>مقالات ثبت‌شده</h2>
+                    <p>
+                        از این قسمت می‌توانید مقاله‌ها را ویرایش یا حذف کنید.
+                    </p>
+                </div>
+
+
+                <div class="table-wrapper">
+                    <table class="admin-table">
+
+                        <thead>
+                            <tr>
+                                <th>عنوان مقاله</th>
+                                <th>دسته‌بندی</th>
+                                <th>وضعیت</th>
+                                <th>تاریخ ثبت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="articlesTableBody">
+                            <tr>
+                                <td colspan="5" class="empty-table">
+                                    در حال دریافت مقالات...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+
+            <!-- COMMENTS PANEL -->
+            <section
+                id="commentsPanel"
+                class="admin-panel"
+                style="display:none;"
+            >
+
+                <div class="panel-heading">
+                    <h2>مدیریت دیدگاه‌ها و پیام‌ها</h2>
+                    <p>
+                        پیام‌های ثبت‌شده کاربران را بررسی،
+                        تأیید یا حذف کنید.
+                    </p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="admin-table">
+
+                        <thead>
+                            <tr>
+                                <th>نام کاربر</th>
+                                <th>متن پیام</th>
+                                <th>نوع پیام</th>
+                                <th>وضعیت</th>
+                                <th>تاریخ</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="commentsTableBody">
+                            <tr>
+                                <td colspan="6" class="empty-table">
+                                    در حال دریافت پیام‌ها...
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <footer class="admin-footer">
+        LIAN JOURNAL — STORIES BEHIND EVERY DETAIL
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/supabase.js"></script>
+    <script src="assets/admin.js"></script>
+    <script src="assets/navigation.js"></script>
+
+</body>
+</html>

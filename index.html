@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لیان | روایت زیورآلات تهران</title>
+    <meta name="description" content="مجله لیان؛ روایت طراحی زیورآلات الهام‌گرفته از معماری تاریخی تهران.">
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .traditional-door-link {
+            width: 190px;
+            min-height: 250px;
+            margin: 0 auto 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform .4s ease;
+            flex-shrink: 0;
+        }
+
+        .traditional-door {
+            width: 100%;
+            max-width: 190px;
+            height: auto;
+            overflow: visible;
+            transition: filter .4s ease;
+        }
+
+        .traditional-door-link:hover {
+            transform: translateY(-7px);
+        }
+
+        .traditional-door-link:hover .traditional-door {
+            filter: drop-shadow(0 8px 12px rgba(23,38,56,.13));
+        }
+
+        .door-caption {
+            color: #b89a64;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            margin-top: -8px;
+            transition: color .3s ease;
+        }
+
+        .traditional-door-link:hover .door-caption {
+            color: #172638;
+        }
+
+        .lian-about-details {
+            width: 100%;
+            max-width: 650px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .about-accordion {
+            background: #fffdf8;
+            border: 1px solid #e9dfce;
+            transition: border-color .3s ease;
+        }
+
+        .about-accordion:hover {
+            border-color: #b89a64;
+        }
+
+        .about-accordion summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 17px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #172638;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .about-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .accordion-icon {
+            color: #b89a64;
+            font-size: 22px;
+            font-weight: 300;
+            transition: transform .3s ease;
+        }
+
+        .about-accordion[open] .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            padding: 0 20px 18px;
+            color: #77736c;
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 13px;
+            line-height: 2.2;
+            animation: aboutFade .3s ease;
+        }
+
+        .accordion-content p {
+            margin: 0 0 7px;
+        }
+
+        .team-name {
+            color: #24384e;
+            font-weight: 600;
+        }
+
+        .team-caption {
+            display: block;
+            color: #b89a64;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        @keyframes aboutFade {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .traditional-door-link {
+                width: 155px;
+                min-height: 220px;
+            }
+
+            .traditional-door {
+                max-width: 155px;
+            }
+
+            .lian-about-details {
+                margin-top: 22px;
+            }
+
+            .about-accordion summary {
+                padding: 15px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-line">
+        LIAN JOURNAL — STORIES BEHIND EVERY DETAIL
+    </div>
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <span class="logo-name">لیان</span>
+            <span class="logo-caption">روایتی از تهران در زیورآلات</span>
+        </a>
+
+        <nav class="navigation">
+            <a href="#home">صفحه اصلی</a>
+            <a href="#about">درباره لیان</a>
+            <a href="#articles">مقالات</a>
+            <a href="#faq">پرسش‌های متداول</a>
+            <a href="#contact">ارتباط با ما</a>
+        </nav>
+
+        <a href="#comments" class="header-button">
+            گفت‌وگو با ما
+        </a>
+
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">مجله رسمی لیان</span>
+
+                <h1>
+                    زیبایی در جزئیات است؛
+                    <br>
+                    درست مثل معماری تهران
+                </h1>
+
+                <p>
+                    لیان از دل نقش‌ونگار درها و پنجره‌های قدیمی تهران
+                    الهام می‌گیرد و خاطره معماری ایرانی را در قالب
+                    زیورآلاتی با طراحی خاص و امروزی بازآفرینی می‌کند.
+                </p>
+
+                <a href="#articles" class="main-button">
+                    کشف داستان‌های لیان
+                </a>
+
+            </div>
+
+            <div class="hero-art">
+                <div class="arch arch-one"></div>
+                <div class="arch arch-two"></div>
+                <div class="arch arch-three"></div>
+                <div class="arch-decoration">✦</div>
+                <span class="art-caption">TEHRAN / 1920</span>
+            </div>
+
+        </section>
+
+
+        <!-- ARTICLES -->
+        <section class="articles section" id="articles">
+
+            <div class="section-heading">
+                <span class="eyebrow">THE JOURNAL</span>
+                <h2>از دل تهران، تا دنیای طراحی</h2>
+                <p>داستان‌هایی درباره معماری، هنر و الهام‌های لیان</p>
+            </div>
+
+            <div class="article-grid">
+
+                <article class="article-card">
+                    <div class="article-visual visual-one">
+                        <span>۰۱</span>
+                        <div class="window-pattern">✧</div>
+                    </div>
+
+                    <div class="article-info">
+                        <span class="article-category">معماری ایرانی</span>
+                        <h3>از قاب پنجره تا اکسسوری‌های مدرن</h3>
+                        <p>
+                            چگونه قاب‌های هندسی، شیشه‌های رنگی و جزئیات
+                            پنجره‌های قدیمی تهران به طراحی زیورآلات امروزی
+                            الهام می‌دهند؟
+                        </p>
+                        <a href="articles/orsi.html">ادامه مطلب ←</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-visual visual-two">
+                        <span>۰۲</span>
+                        <div class="window-pattern">✦</div>
+                    </div>
+
+                    <div class="article-info">
+                        <span class="article-category">دنیای طراحی</span>
+                        <h3>وقتی معماری به زیورآلات تبدیل می‌شود</h3>
+                        <p>
+                            چگونه می‌توان جزئیات یک پنجره قدیمی را
+                            به یک طراحی مدرن و ظریف تبدیل کرد؟
+                        </p>
+                        <a href="articles/design.html">ادامه مطلب ←</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-visual visual-three">
+                        <span>۰۳</span>
+                        <div class="window-pattern">❖</div>
+                    </div>
+
+                    <div class="article-info">
+                        <span class="article-category">پشت صحنه لیان</span>
+                        <h3>از یک ایده تا خلق یک اثر</h3>
+                        <p>
+                            با مسیر شکل‌گیری ایده‌ها و تبدیل الهام‌های
+                            معماری به محصولات لیان آشنا شوید.
+                        </p>
+                        <a href="articles/process.html">ادامه مطلب ←</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-visual visual-one">
+                        <span>۰۴</span>
+                        <div class="window-pattern">✦</div>
+                    </div>
+
+                    <div class="article-info">
+                        <span class="article-category">هویت و مزیت رقابتی</span>
+                        <h3>چرا لیان متفاوت است؟</h3>
+                        <p>
+                            نگاهی به ویژگی‌های طراحی، هویت برند و مزیت‌های
+                            لیان در مقایسه با دیگر فروشگاه‌های زیورآلات.
+                        </p>
+                        <a href="articles/why-lian-is-different.html">
+                            ادامه مطلب ←
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="about section" id="about">
+
+            <div class="section-heading">
+                <span class="eyebrow">OUR STORY</span>
+                <h2>داستانی فراتر از یک زیورآلات</h2>
+            </div>
+
+            <div class="about-content">
+
+                <a
+                    href="admin.html"
+                    class="traditional-door-link"
+                    title="ورود به پنل مدیریت"
+                    aria-label="ورود مدیران به پنل مدیریت"
+                >
+
+                    <svg
+                        class="traditional-door"
+                        viewBox="0 0 240 320"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                    >
+                        <path d="M30 290 V115 A90 90 0 0 1 210 115 V290"
+                              stroke="#B89A64" stroke-width="3"/>
+
+                        <path d="M45 290 V117 A75 75 0 0 1 195 117 V290"
+                              stroke="#172638" stroke-width="2"/>
+
+                        <path d="M58 290 V119 A62 62 0 0 1 182 119 V290 Z"
+                              stroke="#B89A64" stroke-width="2.5"/>
+
+                        <path d="M120 68 L145 103 L120 138 L95 103 Z"
+                              stroke="#B89A64" stroke-width="2"/>
+
+                        <path d="M120 82 L135 103 L120 124 L105 103 Z"
+                              stroke="#172638" stroke-width="1.5"/>
+
+                        <path d="M120 91 L129 103 L120 115 L111 103 Z"
+                              fill="#B89A64"/>
+
+                        <path d="M145 145 L170 170 L145 195 L120 170 Z"
+                              stroke="#B89A64" stroke-width="1.5"/>
+
+                        <path d="M145 157 L158 170 L145 183 L132 170 Z"
+                              stroke="#172638" stroke-width="1.5"/>
+
+                        <path d="M95 145 L120 170 L95 195 L70 170 Z"
+                              stroke="#B89A64" stroke-width="1.5"/>
+
+                        <path d="M95 157 L108 170 L95 183 L82 170 Z"
+                              stroke="#172638" stroke-width="1.5"/>
+
+                        <path d="M75 215 V270 M90 215 V270 M150 215 V270 M165 215 V270"
+                              stroke="#B89A64" stroke-width="1.5"/>
+
+                        <circle cx="166" cy="230" r="5" fill="#B89A64"/>
+
+                        <path d="M20 290 H220" stroke="#172638" stroke-width="2"/>
+                        <path d="M35 300 H205" stroke="#B89A64" stroke-width="1.5"/>
+                    </svg>
+
+                    <span class="door-caption">LIAN</span>
+                </a>
+
+
+                <div>
+
+                    <p>
+                        لیان بر پایه یک ایده شکل گرفته است:
+                        اینکه زیبایی معماری و هویت تاریخی شهرمان
+                        می‌تواند در زندگی روزمره ما حضور داشته باشد.
+                    </p>
+
+                    <p>
+                        نقش‌های هندسی، شیشه‌های رنگی، پنجره‌های ارسی
+                        و جزئیات فراموش‌شده خانه‌های قدیمی تهران،
+                        منبع الهام طراحی محصولات لیان هستند.
+                    </p>
+
+                    <p>
+                        هدف ما ساخت زیورآلاتی است که علاوه بر زیبایی،
+                        داستانی از فرهنگ، خاطره و هنر ایرانی را روایت کنند.
+                    </p>
+
+
+                    <div class="lian-about-details">
+
+                        <details class="about-accordion">
+                            <summary>
+                                <span>درباره‌ی این پروژه</span>
+                                <span class="accordion-icon">+</span>
+                            </summary>
+
+                            <div class="accordion-content">
+                                <p>
+                                    لیان یک پروژه‌ی دانش‌آموزی است که با هدف
+                                    آشنایی با دنیای طراحی، هنر و زیورآلات شکل گرفته است.
+                                </p>
+                                <p>
+                                    این وب‌سایت تلاشی برای ترکیب خلاقیت،
+                                    معماری ایرانی و طراحی در قالب یک تجربه‌ی دیجیتال است.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="about-accordion">
+                            <summary>
+                                <span>سازندگان و مدیران وب‌سایت</span>
+                                <span class="accordion-icon">+</span>
+                            </summary>
+
+                            <div class="accordion-content">
+                                <p class="team-name">سوین انتظار</p>
+                                <p class="team-name">شیدا عبدالهی</p>
+                                <span class="team-caption">
+                                    طراحان و مدیران وب‌سایت لیان
+                                </span>
+                            </div>
+                        </details>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="faq section" id="faq">
+
+            <div class="section-heading">
+                <span class="eyebrow">FAQ</span>
+                <h2>پرسش‌های متداول</h2>
+                <p>پاسخ چند سؤال درباره دنیای لیان</p>
+            </div>
+
+            <div class="faq-list">
+
+                <details>
+                    <summary>ایده اصلی طراحی محصولات لیان چیست؟</summary>
+                    <p>
+                        الهام از معماری تاریخی تهران، به‌خصوص نقش‌های
+                        هندسی درها و پنجره‌های قدیمی، ایده اصلی طراحی لیان است.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>آیا محصولات لیان طراحی اختصاصی دارند؟</summary>
+                    <p>
+                        طراحی محصولات با الهام از جزئیات معماری ایرانی
+                        و با رویکردی خاص و امروزی انجام می‌شود.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>چطور می‌توانیم سؤال خود را از لیان بپرسیم؟</summary>
+                    <p>
+                        می‌توانید از فرم دیدگاه در پایین همین صفحه استفاده کنید.
+                    </p>
+                </details>
+
+            </div>
+        </section>
+
+
+        <!-- COMMENTS -->
+        <section class="comments-section section" id="comments">
+
+            <div class="section-heading">
+                <span class="eyebrow">LET'S TALK</span>
+                <h2>صدای شما، بخشی از داستان لیان</h2>
+                <p>دیدگاه، پیشنهاد یا پرسش خود را با ما به اشتراک بگذارید.</p>
+            </div>
+
+            <div class="comment-notice">
+                دیدگاه‌ها پس از بررسی و تأیید مدیریت سایت منتشر می‌شوند.
+            </div>
+
+            <form class="comment-form" id="commentForm">
+
+                <label for="commentAuthor">نام شما</label>
+                <input
+                    type="text"
+                    id="commentAuthor"
+                    name="author"
+                    placeholder="نام خود را وارد کنید"
+                    maxlength="80"
+                    required
+                >
+
+                <label for="commentType">نوع پیام</label>
+                <select id="commentType" name="type" required>
+                    <option value="comment">ثبت دیدگاه</option>
+                    <option value="question">پرسیدن سؤال</option>
+                    <option value="suggestion">ارسال پیشنهاد</option>
+                </select>
+
+                <label for="commentBody">متن پیام</label>
+                <textarea
+                    id="commentBody"
+                    name="body"
+                    rows="5"
+                    placeholder="اینجا بنویسید..."
+                    maxlength="2000"
+                    required
+                ></textarea>
+
+                <button type="submit" class="main-button">
+                    ارسال برای بررسی
+                </button>
+
+                <p
+                    class="form-message"
+                    id="formMessage"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+            <div class="approved-comments" id="approvedComments">
+                <h3>دیدگاه‌های منتشرشده</h3>
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="contact section" id="contact">
+
+            <span class="eyebrow">STAY CONNECTED</span>
+            <h2>با لیان در ارتباط باشید</h2>
+
+            <p>
+                برای دنبال کردن داستان‌ها و تازه‌ترین اتفاقات لیان،
+                شبکه‌های اجتماعی ما را دنبال کنید.
+            </p>
+
+            <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram ↗
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">لیان</div>
+        <p>زیبایی معماری تهران، در قالب زیورآلات</p>
+        <span>© 2026 LIAN — ALL RIGHTS RESERVED</span>
+    </footer>
+
+
+    <!-- SCRIPTS: ترتیب بارگذاری مهم است -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/supabase.js"></script>
+    <script src="assets/app.js"></script>
+    <script src="assets/articles.js"></script>
+    <script src="assets/navigation.js"></script>
+
+</body>
+</html>
